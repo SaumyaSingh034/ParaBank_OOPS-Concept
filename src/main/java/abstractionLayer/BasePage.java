@@ -3,6 +3,8 @@ package abstractionLayer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BasePage extends Page{
     public BasePage(WebDriver driver) {
@@ -26,12 +28,22 @@ public class BasePage extends Page{
 
     @Override
     public void waitForElementPresent(By locator) {
-        wait.until()
+       try{
+           wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+       }catch (Exception e){
+           System.out.println("some exception occured : "+locator.toString());
+       }
 
     }
 
     @Override
     public void waitForPageTitle(String title) {
+        try{
+            wait.until(ExpectedConditions.titleContains(title));
+        }catch (Exception e){
+            System.out.println("some exception occured : "+title.toString());
+        }
+
 
     }
 }
