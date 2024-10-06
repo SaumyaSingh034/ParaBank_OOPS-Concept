@@ -29,6 +29,6 @@ public abstract class Page {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        return null;
     }
 }
