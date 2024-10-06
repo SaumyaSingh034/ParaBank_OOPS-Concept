@@ -11,21 +11,22 @@ public class BasePage extends Page{
 
     @Override
     public String getPageTitle() {
-        return null;
+        return driver.getTitle();
     }
 
     @Override
-    public String getPageHeader() {
-        return null;
+    public String getPageHeader(By locator) {
+       return getElement(locator).getText();
     }
 
     @Override
     public WebElement getElement(By locator) {
-        return null;
+        return driver.findElement(locator);
     }
 
     @Override
     public void waitForElementPresent(By locator) {
+        wait.until()
 
     }
 

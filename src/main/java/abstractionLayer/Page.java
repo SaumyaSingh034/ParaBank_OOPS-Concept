@@ -18,7 +18,7 @@ public abstract class Page {
     }
 
     public abstract String getPageTitle();
-    public abstract String getPageHeader();
+    public abstract String getPageHeader(By locator);
     public abstract WebElement getElement(By locator);
     public abstract void  waitForElementPresent(By locator);
     public abstract void waitForPageTitle(String title);
